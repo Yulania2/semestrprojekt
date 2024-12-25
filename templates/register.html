@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+    
+<body>
+    <div class="background">
+        <div class="shape one"></div>
+        <div class="shape two"></div>
+        <div class="shape three"></div>
+    </div>
+
+    <div class="login-container">
+    <h1>Реєстрація</h1>
+    <form method="post" action="/register">
+    
+        <label>Імя:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label>Пароль:</label>
+        <input type="password" name="password" required>
+        <br>
+    
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

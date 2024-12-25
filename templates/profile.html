@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile - {{ user.username }}</h1>
+    <form action="/user/{{ user.username }}/profile" method="post" enctype="multipart/form-data">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ user.email or '' }}" required>
+        <br>
+        <label for="avatar">Avatar:</label>
+        <input type="file" name="avatar" id="avatar">
+        <br>
+        {% if user.avatar %}
+        <img src="/{{ user.avatar }}" alt="Avatar" width="150">
+        {% endif %}
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<h1>Welcome, {{ username }}</h1>
+
+<!-- All Posts Section -->
+<h2>All Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <strong>{{ post.title }}</strong> - {{ post.description }}
+            <em>by {{ post.author }}</em>
+            <br>
+            
+            <!-- Display post image if available -->
+            {% if post.image %}
+                <img src="{{ post.image }}" alt="{{ post.title }}" style="max-width: 200px; max-height: 150px;">
+            {% endif %}
+            
+            <!-- Add to Favorites Form -->
+            <form action="/user/{{ username }}/add_favorite" method="post" style="display:inline;">
+                <input type="hidden" name="post_title" value="{{ post.title }}">
+                <button type="submit">❤️ Add to Favorites</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- User Favorites Section -->
+<h2>Your Favorites</h2>
+<ul>
+    {% for fav in favorites %}
+        <li>
+            <strong>{{ fav.title }}</strong> - {{ fav.description }}
+            <br>
+            
+            <!-- Display favorite post image if available -->
+            {% if fav.image %}
+                <img src="{{ fav.image }}" alt="{{ fav.title }}" style="max-width: 200px; max-height: 150px;">
+            {% endif %}
+        </li>
+    {% else %}
+        <p>You have no favorites yet.</p>
+    {% endfor %}
+</ul>
